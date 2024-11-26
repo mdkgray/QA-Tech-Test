@@ -16,7 +16,7 @@ from selenium.webdriver.ie.service import Service as IEService
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import IEDriverManager
-from utils.appConfig import AppConfig
+from utils.config_reader import ConfigReader
 
 class WebDriverFactory():
     def __init__(self, browser):
@@ -29,7 +29,7 @@ class WebDriverFactory():
         """
         Create and return a WebDriver instance based on the specified browser.
         """
-        baseURL = AppConfig.getBaseURL()
+        baseURL = ConfigReader.getBaseURL()
         if self.browser == 'chrome':
             # Use webdriver-manager to manage the ChromeDriver
             driver = webdriver.Chrome(
