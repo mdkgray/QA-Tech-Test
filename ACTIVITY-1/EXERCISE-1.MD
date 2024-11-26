@@ -193,4 +193,4 @@ Environments needed for testing:
         - Integration with CI/CD Pipelines: Selenium scripts can be integrated into CI/CD tools like GitHub Actions to ensure test execution is part of the deployment process, maintaining high product quality.
 
 5. **Community Support and Documentation**
-    Selenium has a vast user base and extensive documentation, making it easier to troubleshoot issues or find resources to improve the automation framework. For Python, libraries like SeleniumBase provide additional abstractions for common use cases, further speeding up test development.
+    - Selenium has a vast user base and extensive documentation, making it easier to troubleshoot issues or find resources to improve the automation framework. For Python, libraries like SeleniumBase provide additional abstractions for common use cases, further speeding up test development.
