@@ -1,40 +1,40 @@
 ## TEST STRATEGY
 
 1. Objective
-The objective of the test strategy for this e-commerce application is to ensure that all critical features are reliable, user friendly and secure with no defects. The main flows involved which should be covered are, sign in/sign out, searching/filtering products, viewing products in the grid view and detailed view, adding/updating/removing items from the cart and checkout. These flows can be tested with a combination of manual and automated tests. 
+The objective of the test strategy for this e-commerce application is to ensure that all critical features are reliable, user friendly and secure with no defects. The main flows involved which should be covered are login, filtering products, viewing products in the grid view and detailed view, adding/updating/removing items from the cart and checkout. These flows can be tested with a combination of manual and automated tests. 
 
 2. Scope
 Core functionalities to be tested which users engage with frequently:
-    Login: Verify user authentication and error handling for incorrect credentials.
-    Product Filtering: Ensure users can filter products accurately based on criteria (e.g., name, price).
-    Product Grid and Detailed Views: Verify product details and ensure data is consistent across listings.
-    Cart: Test adding, removing, and updating items in the cart.
-    Checkout: Validate the checkout workflow, payment options, and form validation.
+- Login: Verify user authentication and error handling for incorrect credentials.
+- Product Filtering: Ensure users can filter products accurately based on criteria (e.g., name, price).
+- Product Grid and Detailed Views: Verify product details and ensure data is consistent across listings.
+- Cart: Test adding, removing, and updating items in the cart.
+- Checkout: Validate the checkout workflow, payment options, and form validation.
 
 3. Types of Testing
 To cover the application thoroughly, the strategy includes multiple testing types:
-    Functional Testing: Ensures each feature works according to its requirements. Focus on verifying functionality such as successful logins, filtering accuracy, and adding items to the cart.
-    End-to-End Testing: Covers end-to-end functionalities from login through checkout, simulating user behavior and interactions.
-    UI Testing: Verifies visual elements like buttons and layout to ensure the UI is user-friendly and aligns with expected design.
-    Regression Testing: After changes or fixes, tests previously covered functionality to catch any introduced regressions.
-    Performance Testing: Ensures that pages like login, search, and checkout load within acceptable times, simulating different load scenarios.
+- Functional Testing: Ensures each feature works according to its requirements. Focus on verifying functionality such as successful logins, filtering accuracy, and adding items to the cart.
+- End-to-End Testing: Covers end-to-end functionalities from login through checkout, simulating user behavior and interactions.
+- UI Testing: Verifies visual elements like buttons and layout to ensure the UI is user-friendly and aligns with expected design.
+- Regression Testing: After changes or fixes, tests previously covered functionality to catch any introduced regressions.
+- Performance Testing: Ensures that pages like login, search, and checkout load within acceptable times, simulating different load scenarios.
 
 4. Test Data Requirements
 Identify the data necessary to validate different scenarios:
-    User Data: Valid and invalid login credentials, ensuring realistic test coverage.
-    Product Data: Sample data for a variety of product types, prices, and names.
-    Cart and Order Data: Different order scenarios, including multiple items, discounts, and different payment methods.
+- User Data: Valid and invalid login credentials, ensuring realistic test coverage.
+- Product Data: Sample data for a variety of product types, prices, and names.
+- Cart and Order Data: Different order scenarios, including multiple items and payment method.
 
 5. Environment Setup
 Environments needed for testing:
-    Staging/`dev` Environment: Ideally, testing should be done in an environment mirroring production. It should have stable test data and configurations.
-    Browsers and Devices: Target the primary browsers (e.g., Chrome, Firefox) and devices (if mobile is supported) to reflect the user base.
-    Test Automation Setup: Utilize Selenium WebDriver for browser interactions with Python, using a framework like Pytest to execute and manage test cases.
+- Staging/`dev` Environment: Ideally, testing should be done in an environment mirroring production. It should have stable test data and configurations.
+- Browsers and Devices: Target the primary browsers (e.g., Chrome, Firefox) and devices (if mobile is supported) to reflect the user base.
+- Test Automation Setup: Utilize Selenium WebDriver for browser interactions with Python, using a framework like Pytest to execute and manage test cases.
 
 
 ## TEST PLANS
 
-- Sign In/Sign Out
+- Log In/Log Out
     - When visiting the login page the user should be allowed to login with correct email and password.
     - When visiting the login page the user should not be allowed login with incorrect email and password.
     - Should be able to validate the username and password fields are case sensitive.
@@ -82,7 +82,7 @@ Environments needed for testing:
     - Should ensure no products are duplicated or missing after applying any filter.
     - Should verify that the applied filter is cleared upon logout and does not persist for a new session.
 
-- Products grid view
+- Product grid view
     - Should display all products available in a grid layout after successful login.
     - Should adjust the grid layout dynamically for different screen sizes.
     - Should display product details (name, price, and thumbnail image) specific to each product in the grid.
@@ -167,30 +167,30 @@ Environments needed for testing:
 
 ### Selenium with Python
 1. Widespread Support for Browser Automation
-    Selenium is a widely adopted tool for browser automation and supports all major browsers, including Chrome, Firefox, Edge, and Safari. This compatibility ensures robust cross-browser testing, which is critical for e-commerce applications like SauceDemo to provide a consistent user experience.
+- Selenium is a widely adopted tool for browser automation and supports all major browsers, including Chrome, Firefox, Edge, and Safari. This compatibility ensures robust cross-browser testing for e-commerce applications like SauceDemo to provide a consistent user experience.
 
-    Comprehensive Testing Coverage: Selenium allows testing dynamic and responsive web pages, which is essential for e-commerce platforms that use modern web technologies.
-    
-    Customization: Selenium provides flexibility to write custom scripts to handle specific scenarios, such as AJAX calls, pop-ups, and dynamic content.
+- Comprehensive Testing Coverage: Selenium allows testing dynamic and responsive web pages, which is essential for e-commerce platforms that use modern web technologies.
 
-2. Alignment with Organizational Tech Stack
-    Python is already used within the organization, which simplifies the integration and learning curve for new testers or developers involved in automation.
+- Customization: Selenium provides flexibility to write custom scripts to handle specific scenarios, such as pop-ups and dynamic content.
 
-    Ease of Use: Python's simple syntax makes it accessible for beginners and efficient for experienced testers to write concise and readable test scripts.
-    
-    Rich Ecosystem: Python has an extensive library ecosystem, enabling easy integration with complementary tools such as Pytest for test execution and reporting, and Allure for advanced reporting.
+2. Alignment with Organisation Tech Stack
+- Python is used within the organisation, which simplifies the integration and learning curve for new testers or developers involved in automation.
+
+- Ease of Use: Python's simple syntax makes it accessible for beginners and efficient for experienced testers to write concise and readable test scripts.
+
+- Rich Ecosystem: Python has an extensive library ecosystem, enabling easy integration with complementary tools such as Pytest for test execution and reporting.
 
 3. Integration with Testing Libraries like Pytest
-    Selenium integrates seamlessly with Python-based test libraries like Pytest, which enhances the testing process with the following benefits:
-    - Robust Reporting: Pytest offers detailed logs and reporting capabilities. When paired with plugins like pytest-html or pytest-allure, it provides insights into test results, failures, and coverage.
-    - Parallel Test Execution: Pytest-xdist allows running multiple tests concurrently, reducing the overall test execution time—a critical factor for large e-commerce applications with numerous test cases.
-    - Parameterization: Pytest supports parameterized testing, allowing multiple datasets to be tested against the same test case, which is crucial for validating scenarios like login with different credentials or searching for various products.
+- Selenium integrates seamlessly with Python-based test libraries like Pytest, which enhances the testing process with the following benefits:
+    - Robust Reporting: Pytest offers detailed logs and reporting capabilities. When paired with plugins like pytest-html, it provides insights into test results, failures, and coverage.
+    - Parallel Test Execution: Pytest-xdist allows running multiple tests concurrently, reducing the overall test execution time, a critical factor for large e-commerce applications with numerous test cases.
+    - Parameterisation: Pytest supports parameterized testing, allowing multiple datasets to be tested against the same test case, which is crucial for validating scenarios like login with different credentials or searching for various products.
 
 4. Real-World E-Commerce Needs
-    Selenium is particularly suited to e-commerce applications due to its ability to handle complex user interactions:
+- Selenium is particularly suited to e-commerce applications due to its ability to handle complex user interactions:
     - User Journey Automation: Selenium can replicate complete user flows such as searching for products, adding them to a cart, and checking out—mimicking the exact behavior of real users.
     - Dynamic Element Handling: E-commerce sites often include elements that load asynchronously. Selenium provides robust support for handling dynamic elements using explicit and implicit waits.
-    - Integration with CI/CD Pipelines: Selenium scripts can be integrated into CI/CD tools like Jenkins or GitHub Actions to ensure test execution is part of the deployment process, maintaining high product quality.
+    - Integration with CI/CD Pipelines: Selenium scripts can be integrated into CI/CD tools like GitHub Actions to ensure test execution is part of the deployment process, maintaining high product quality.
 
 5. Community Support and Documentation
     Selenium has a vast user base and extensive documentation, making it easier to troubleshoot issues or find resources to improve the automation framework. For Python, libraries like SeleniumBase provide additional abstractions for common use cases, further speeding up test development.
