@@ -17,7 +17,7 @@
 **Expected results**
 - The correct product should be displayed in the detailed view when clicked on in the grid view.
 
-
+---
 
 ### Bug 1 
 
@@ -38,7 +38,7 @@
 **Expected results**
 - The item should be added or removed from the cart when the Add to cart/Remove button is clicked
 
-
+---
 
 ### Bug 2
 
@@ -60,7 +60,7 @@
 **Expected results**
 - The user should be redirected to the /cart.html page when the cart icon is clicked
 
-
+---
 
 ### Bug 3
 
@@ -83,7 +83,7 @@
 - The user should not be able to enter special characters into these fields and progress in the checkout flow. 
 - These fields should have validation to ensure the correct characters are added - alphabetical for name fields, alphanumeric for postcode field.
 
-
+---
 
 ### Bug 4
 
@@ -104,7 +104,7 @@
 **Expected results**
 - The image displayed in the product grid view should be specific to the product
 
-
+---
 
 ### Bug 5 
 
@@ -125,7 +125,7 @@
 **Expected results**
 - When viewing the detailed product view for the Sauce Labs Fleece Jacket item, the correct information should be displayed. 
 
-
+---
 
 ### Bug 6
 
@@ -146,7 +146,7 @@
 **Expected results**
 - The number of items added in the grid view should match the number of items displayed on the cart icon. 
 
-
+---
 
 ### Bug 7
 
@@ -166,7 +166,7 @@
 **Expected results**
 - When a filter is applied, the product grid should be dynamically filtered by the selected filter. 
 
-
+---
 
 ### Bug 8
 
@@ -188,7 +188,7 @@
 **Expected results**
 - The correct image should be displayed for a product when viewing the grid and detailed views.  
 
-
+---
 
 ### Bug 9
 
@@ -210,7 +210,7 @@
 **Expected results**
 - The user should not be able to enter and complete the checkout flow without any items in their cart. 
 
-
+---
 
 ### Bug 10
 
@@ -230,6 +230,7 @@
 **Expected results**
 - The cart icon should be aligned to the top right of the page. 
 
+---
 
 ### Bug 11
 
@@ -250,7 +251,7 @@
 **Expected results**
 - The Add to cart/Remove button should be contained within the tile of the product in the product grid view.
 
-
+---
 
 ### Bug 12
 
