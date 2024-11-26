@@ -1,35 +1,35 @@
 ## TEST STRATEGY
 
-1. Objective
-The objective of the test strategy for this e-commerce application is to ensure that all critical features are reliable, user friendly and secure with no defects. The main flows involved which should be covered are login, filtering products, viewing products in the grid view and detailed view, adding/updating/removing items from the cart and checkout. These flows can be tested with a combination of manual and automated tests. 
+1. **Objective**
+    - The objective of the test strategy for this e-commerce application is to ensure that all critical features are reliable, user friendly and secure with no defects. The main flows involved which should be covered are login, filtering products, viewing products in the grid view and detailed view, adding/updating/removing items from the cart and checkout. These flows can be tested with a combination of manual and automated tests. 
 
-2. Scope
-Core functionalities to be tested which users engage with frequently:
-- Login: Verify user authentication and error handling for incorrect credentials.
-- Product Filtering: Ensure users can filter products accurately based on criteria (e.g., name, price).
-- Product Grid and Detailed Views: Verify product details and ensure data is consistent across listings.
-- Cart: Test adding, removing, and updating items in the cart.
-- Checkout: Validate the checkout workflow, payment options, and form validation.
+2. **Scope**
+    - Core functionalities to be tested which users engage with frequently:
+        - Login: Verify user authentication and error handling for incorrect credentials.
+        - Product Filtering: Ensure users can filter products accurately based on criteria (e.g., name, price).
+        - Product Grid and Detailed Views: Verify product details and ensure data is consistent across listings.
+        - Cart: Test adding, removing, and updating items in the cart.
+        - Checkout: Validate the checkout workflow, payment options, and form validation.
 
-3. Types of Testing
-To cover the application thoroughly, the strategy includes multiple testing types:
-- Functional Testing: Ensures each feature works according to its requirements. Focus on verifying functionality such as successful logins, filtering accuracy, and adding items to the cart.
-- End-to-End Testing: Covers end-to-end functionalities from login through checkout, simulating user behavior and interactions.
-- UI Testing: Verifies visual elements like buttons and layout to ensure the UI is user-friendly and aligns with expected design.
-- Regression Testing: After changes or fixes, tests previously covered functionality to catch any introduced regressions.
-- Performance Testing: Ensures that pages like login, search, and checkout load within acceptable times, simulating different load scenarios.
+3. **Types of Testing**
+    - To cover the application thoroughly, the strategy includes multiple testing types:
+        - Functional Testing: Ensures each feature works according to its requirements. Focus on verifying functionality such as successful logins, filtering accuracy, and adding items to the cart.
+        - End-to-End Testing: Covers end-to-end functionalities from login through checkout, simulating user behavior and interactions.
+        - UI Testing: Verifies visual elements like buttons and layout to ensure the UI is user-friendly and aligns with expected design.
+        - Regression Testing: After changes or fixes, tests previously covered functionality to catch any introduced regressions.
+        - Performance Testing: Ensures that pages like login, search, and checkout load within acceptable times, simulating different load scenarios.
 
-4. Test Data Requirements
-Identify the data necessary to validate different scenarios:
-- User Data: Valid and invalid login credentials, ensuring realistic test coverage.
-- Product Data: Sample data for a variety of product types, prices, and names.
-- Cart and Order Data: Different order scenarios, including multiple items and payment method.
+4. **Test Data Requirements**
+    - Identify the data necessary to validate different scenarios:
+        - User Data: Valid and invalid login credentials, ensuring realistic test coverage.
+        - Product Data: Sample data for a variety of product types, prices, and names.
+        - Cart and Order Data: Different order scenarios, including multiple items and payment method.
 
-5. Environment Setup
-Environments needed for testing:
-- Staging/`dev` Environment: Ideally, testing should be done in an environment mirroring production. It should have stable test data and configurations.
-- Browsers and Devices: Target the primary browsers (e.g., Chrome, Firefox) and devices (if mobile is supported) to reflect the user base.
-- Test Automation Setup: Utilize Selenium WebDriver for browser interactions with Python, using a framework like Pytest to execute and manage test cases.
+5. **Environment Setup**
+    - Environments needed for testing:
+        - Staging/`dev` Environment: Ideally, testing should be done in an environment mirroring production. It should have stable test data and configurations.
+        - Browsers and Devices: Target the primary browsers (e.g., Chrome, Firefox) and devices (if mobile is supported) to reflect the user base.
+        - Test Automation Setup: Utilize Selenium WebDriver for browser interactions with Python, using a framework like Pytest to execute and manage test cases.
 
 
 ## TEST PLANS
