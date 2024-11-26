@@ -166,31 +166,31 @@ Environments needed for testing:
 ## DECISIONS AND REASONS
 
 ### Selenium with Python
-1. Widespread Support for Browser Automation
+1. **Widespread Support for Browser Automation**
     - Selenium is a widely adopted tool for browser automation and supports all major browsers, including Chrome, Firefox, Edge, and Safari. This compatibility ensures robust cross-browser testing for e-commerce applications like SauceDemo to provide a consistent user experience.
 
     - Comprehensive Testing Coverage: Selenium allows testing dynamic and responsive web pages, which is essential for e-commerce platforms that use modern web technologies.
 
     - Customization: Selenium provides flexibility to write custom scripts to handle specific scenarios, such as pop-ups and dynamic content.
 
-2. Alignment with Organisation Tech Stack
+2. **Alignment with Organisation Tech Stack**
     - Python is used within the organisation, which simplifies the integration and learning curve for new testers or developers involved in automation.
 
     - Ease of Use: Python's simple syntax makes it accessible for beginners and efficient for experienced testers to write concise and readable test scripts.
 
     - Rich Ecosystem: Python has an extensive library ecosystem, enabling easy integration with complementary tools such as Pytest for test execution and reporting.
 
-3. Integration with Testing Libraries like Pytest
-    Selenium integrates seamlessly with Python-based test libraries like Pytest, which enhances the testing process with the following benefits:
+3. **Integration with Testing Libraries like Pytest**
+    - Selenium integrates seamlessly with Python-based test libraries like Pytest, which enhances the testing process with the following benefits:
         - Robust Reporting: Pytest offers detailed logs and reporting capabilities. When paired with plugins like pytest-html, it provides insights into test results, failures, and coverage.
         - Parallel Test Execution: Pytest-xdist allows running multiple tests concurrently, reducing the overall test execution time, a critical factor for large e-commerce applications with numerous test cases.
         - Parameterisation: Pytest supports parameterized testing, allowing multiple datasets to be tested against the same test case, which is crucial for validating scenarios like login with different credentials or searching for various products.
 
-4. Real-World E-Commerce Needs
-    Selenium is particularly suited to e-commerce applications due to its ability to handle complex user interactions:
-       - User Journey Automation: Selenium can replicate complete user flows such as searching for products, adding them to a cart, and checking out—mimicking the exact behavior of real users.
-       - Dynamic Element Handling: E-commerce sites often include elements that load asynchronously. Selenium provides robust support for handling dynamic elements using explicit and implicit waits.
-       - Integration with CI/CD Pipelines: Selenium scripts can be integrated into CI/CD tools like GitHub Actions to ensure test execution is part of the deployment process, maintaining high product quality.
+4. **Real-World E-Commerce Needs**
+    - Selenium is particularly suited to e-commerce applications due to its ability to handle complex user interactions:
+        - User Journey Automation: Selenium can replicate complete user flows such as searching for products, adding them to a cart, and checking out—mimicking the exact behavior of real users.
+        - Dynamic Element Handling: E-commerce sites often include elements that load asynchronously. Selenium provides robust support for handling dynamic elements using explicit and implicit waits.
+        - Integration with CI/CD Pipelines: Selenium scripts can be integrated into CI/CD tools like GitHub Actions to ensure test execution is part of the deployment process, maintaining high product quality.
 
-5. Community Support and Documentation
+5. **Community Support and Documentation**
     Selenium has a vast user base and extensive documentation, making it easier to troubleshoot issues or find resources to improve the automation framework. For Python, libraries like SeleniumBase provide additional abstractions for common use cases, further speeding up test development.
