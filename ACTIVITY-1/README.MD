@@ -57,14 +57,6 @@ source {{NAME_OF_YOUR_VENV}}/bin/activate
 pip install -r requirements.txt
 ```
 
-Ensure you have downloaded the correct chrome webdriver version [here](https://googlechromelabs.github.io/chrome-for-testing/) and ensure you either specify the path to your ChromeDiver in your code or add the ChromeDriver to your system's PATH. 
-
-Add to your system PATH by:
-- Open Environment Variables:
-- Search for "Environment Variables" in your Start menu.
-- Edit the Path variable (under System Variables).
-- Add the directory path where `chromedriver.exe` is located (e.g., C:\chromedriver).
-- Click OK to save.
-
-
 ## Run Tests
+
+<!-- TODO: Add scripts to run tests -->
