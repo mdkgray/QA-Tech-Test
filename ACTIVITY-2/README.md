@@ -28,7 +28,7 @@ Comprehensive test plans for this API service can be found in the `EXERCISE-2.md
 ## Prerequisites
 1. Install Python v3.13.0: [Download Python](https://www.python.org/downloads/)
 2. Install Git: [Download Git](https://git-scm.com/downloads)
-4. Install Pip: 
+3. Install Pip: [Download Pip](https://pip.pypa.io/en/stable/installation/)
 
 ## Getting Started
 Once the prerequisites are met, follow the bellow commands:
