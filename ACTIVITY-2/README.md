@@ -21,7 +21,7 @@ Comprehensive test plans for this API service can be found in the `EXERCISE-2.md
 ## Tools and Technologies
 - **Python:** Programming language for writing automated tests.
 - **Pytest:** Executing automated test cases.
-- **Request Library:** To assist in the automation of the REST API. 
+- **Python Requests Library:** To assist in the automation of the REST API. 
 - **ConfigParser:** Managing configuration settings.
 - **HTML Reports:** Capture and display test executions in HTML format.
 
