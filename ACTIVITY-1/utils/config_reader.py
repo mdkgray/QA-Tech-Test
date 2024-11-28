@@ -2,7 +2,7 @@ import configparser
 import os
 
 configReader = configparser.ConfigParser()
-config_path = os.path.join(os.path.dirname(__file__), '..', 'testData', 'testData.ini')
+config_path = os.path.join(os.path.dirname(__file__), '..', 'config', 'config.ini')
 configReader.read(config_path)
 
 # Base methods 
