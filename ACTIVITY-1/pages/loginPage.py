@@ -10,11 +10,11 @@ class LoginPage(SeleniumDriver):
     _instance = None
     
     # Page locators
-    LOGIN_PAGE_TITLE_LOCATOR = "//div[@class='login_logo']"
-    USERNAME_INPUT_LOCATOR = "//input[@id='user-name']"
-    PASSWORD_INPUT_LOCATOR = "//input[@id='password']"
-    LOGIN_BUTTON_LOCATOR = "//input[@id='login-button']"
-    LOGIN_ERROR_MESSAGE_LOCATOR = "//div[@class='error-message-container error']/h3"
+    _LOGIN_PAGE_TITLE_LOCATOR = "//div[@class='login_logo']"
+    _USERNAME_INPUT_LOCATOR = "//input[@id='user-name']"
+    _PASSWORD_INPUT_LOCATOR = "//input[@id='password']"
+    _LOGIN_BUTTON_LOCATOR = "//input[@id='login-button']"
+    _LOGIN_ERROR_MESSAGE_LOCATOR = "//div[@class='error-message-container error']/h3"
 
     def __new__(cls, driver):
         if cls._instance is None:
@@ -37,16 +37,16 @@ class LoginPage(SeleniumDriver):
 
     def enterUsername(self, username):
         """Clears and enters username."""
-        self.clearAndSendKeys(self.USERNAME_INPUT_LOCATOR, username)
+        self.clearAndSendKeys(self._USERNAME_INPUT_LOCATOR, username)
 
     def enterPassword(self, password):
         """Clears and enters password."""
-        self.clearAndSendKeys(self.PASSWORD_INPUT_LOCATOR, password)
+        self.clearAndSendKeys(self._PASSWORD_INPUT_LOCATOR, password)
 
     def clickLoginButton(self):
         """Clicks the login button."""
         try:
-            self.elementClick(self.LOGIN_BUTTON_LOCATOR, locatorType="xpath")
+            self.elementClick(self._LOGIN_BUTTON_LOCATOR, locatorType="xpath")
             logging.info("Clicked on login button")
         except Exception as e:
             logging.error(f"Error clicking login button: {e}")
@@ -55,8 +55,8 @@ class LoginPage(SeleniumDriver):
     def getLoginErrorMessageText(self):
         """Gets the error message text if login fails."""
         try:
-            self.waitForElement(self.LOGIN_ERROR_MESSAGE_LOCATOR, locatorType="xpath")
-            element = self.driver.find_element(By.XPATH, self.LOGIN_ERROR_MESSAGE_LOCATOR)
+            self.waitForElement(self._LOGIN_ERROR_MESSAGE_LOCATOR, locatorType="xpath")
+            element = self.driver.find_element(By.XPATH, self._LOGIN_ERROR_MESSAGE_LOCATOR)
             logging.info("Retrieved login error message")
             return element.text
         except (TimeoutException, NoSuchElementException) as e:
@@ -66,8 +66,8 @@ class LoginPage(SeleniumDriver):
     def getLoginPageTitleText(self):
         """Gets the login page title text."""
         try:
-            self.waitForElement(self.LOGIN_PAGE_TITLE_LOCATOR, locatorType="xpath")
-            element = self.driver.find_element(By.XPATH, self.LOGIN_PAGE_TITLE_LOCATOR)
+            self.waitForElement(self._LOGIN_PAGE_TITLE_LOCATOR, locatorType="xpath")
+            element = self.driver.find_element(By.XPATH, self._LOGIN_PAGE_TITLE_LOCATOR)
             logging.info("Retrieved login page title text")
             return element.text
         except (TimeoutException, NoSuchElementException) as e:
