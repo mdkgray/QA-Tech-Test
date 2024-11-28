@@ -18,11 +18,11 @@ The following core functionalities of the E-commerce application will be tested:
 - Validate the checkout workflow, payment options, and form validation.
 
 ## Tools and Technologies
-+ **Python:** Programming language for writing automated tests.
-+ **Pytest:** Executing automated test cases.
-+ **Selenium WebDriver:** Automating web browser interactions.
-+ **ConfigParser:** Managing configuration settings.
-+ **HTML Reports:** Capture and display test executions in HTML format.
+- **Python:** Programming language for writing automated tests.
+- **Pytest:** Executing automated test cases.
+- **Selenium WebDriver:** Automating web browser interactions.
+- **ConfigParser:** Managing configuration settings.
+- **HTML Reports:** Capture and display test executions in HTML format.
 
 ## Prerequisites
 1. Python v3.13.0: [Download Python](https://www.python.org/downloads/)
