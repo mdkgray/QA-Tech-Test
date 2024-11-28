@@ -1,3 +1,5 @@
+# Swag Labs
+
 ## TEST STRATEGY
 
 1. **Objective**
