@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 class LoginPage(SeleniumDriver):
     _instance = None
     
-    # Constants for locators (uppercase to indicate constants)
+    # Page locators
     LOGIN_PAGE_TITLE_LOCATOR = "//div[@class='login_logo']"
     USERNAME_INPUT_LOCATOR = "//input[@id='user-name']"
     PASSWORD_INPUT_LOCATOR = "//input[@id='password']"
