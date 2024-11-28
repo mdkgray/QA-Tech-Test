@@ -25,13 +25,10 @@ The following core functionalities of the E-commerce application will be tested:
 - **HTML Reports:** Capture and display test executions in HTML format.
 
 ## Prerequisites
-1. Python v3.13.0: [Download Python](https://www.python.org/downloads/)
-2. Git: [Download Git](https://git-scm.com/downloads)
-3. Virtual Environment: Used to manage dependencies in a stable environment
-4. pip: To check if you have `pip` available by running the following:
-    - Unix/MacOS: `python3 -m pip --version`
-    - Windows: `py -m pip --version`
-        - If pip isn’t installed, then first try to bootstrap it from the standard library using: `py -m ensurepip --default-pip`
+## Prerequisites
+1. Install Python v3.13.0: [Download Python](https://www.python.org/downloads/)
+2. Install Git: [Download Git](https://git-scm.com/downloads)
+4. Install Pip: 
 
 ## Getting Started
 Once the prerequisites are met, follow the bellow commands:
