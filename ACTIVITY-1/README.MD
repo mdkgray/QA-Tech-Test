@@ -10,9 +10,7 @@ The following core functionalities of the E-commerce application will be tested:
 
 ### Login: 
 - Verify user authentication and error handling for incorrect credentials.
-### Product Filtering: 
-- Ensure users can filter products accurately based on criteria (e.g., name, price).
-### Product Grid and Detailed Views:
+### Product Inventory - Grid and Detailed Views:
 - Verify product details and ensure data is consistent across listings.
 ### Cart:
 - Test adding, removing, and updating items in the cart.

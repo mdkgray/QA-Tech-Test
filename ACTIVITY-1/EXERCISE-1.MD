@@ -1,19 +1,18 @@
 ## TEST STRATEGY
 
 1. **Objective**
-    - The objective of the test strategy for this e-commerce application is to ensure that all critical features are reliable, user friendly and secure with no defects. The main flows involved which should be covered are login, filtering products, viewing products in the grid view and detailed view, adding/updating/removing items from the cart and checkout. These flows can be tested with a combination of manual and automated tests. 
+    - The objective of the test strategy for this e-commerce application is to ensure that all critical features are reliable, user friendly and secure with no defects. The main flows involved which should be covered are login, product inventory page accuracy in the grid view and detailed view, adding/updating/removing items from the cart and checkout. These flows can be tested with a combination of manual and automated tests. 
 
 2. **Scope**
     - Core functionalities to be tested which users engage with frequently:
         - Login: Verify user authentication and error handling for incorrect credentials.
-        - Product Filtering: Ensure users can filter products accurately based on criteria (e.g., name, price).
-        - Product Grid and Detailed Views: Verify product details and ensure data is consistent across listings.
+        - Product Inventory Page: Verify product details and ensure data is consistent across listings.
         - Cart: Test adding, removing, and updating items in the cart.
         - Checkout: Validate the checkout workflow, payment options, and form validation.
 
 3. **Types of Testing**
     - To cover the application thoroughly, the strategy includes multiple testing types:
-        - Functional Testing: Ensures each feature works according to its requirements. Focus on verifying functionality such as successful logins, filtering accuracy, and adding items to the cart.
+        - Functional Testing: Ensures each feature works according to its requirements. Focus on verifying functionality such as successful logins, and adding items to the cart and checkout.
         - End-to-End Testing: Covers end-to-end functionalities from login through checkout, simulating user behavior and interactions.
         - UI Testing: Verifies visual elements like buttons and layout to ensure the UI is user-friendly and aligns with expected design.
         - Regression Testing: After changes or fixes, tests previously covered functionality to catch any introduced regressions.
@@ -64,57 +63,40 @@
     - When the user logs out and then updates the URL, should be able to display the error message "Epic sadface: You can only access '/inventory.html' when you are logged in.".
     - Should verify SQL injection is blocked on the sign in input fields.
 
-- Filtering products
-    - Should display the products in ascending alphabetical order when the "Name (A to Z)" filter is selected.
-    - Should not display the products in descending alphabetical order when the "Name (A to Z)" filter is selected.
-    - Should display the products in descending alphabetical order when the "Name (Z to A)" filter is selected.
-    - Should not display the products in ascending alphabetical order when the "Name (Z to A)" filter is selected.
-    - Should ensure filtered product names are sorted case-insensitively
-    - Should display products in ascending order of price when the "Price (Low to High)" filter is selected.
-    - Should not display products in descending order of price when the "Price (Low to High)" filter is selected.
-    - Should display products in descending order of price when the "Price (High to Low)" filter is selected.
-    - Should not display products in ascending order of price when the "Price (High to Low)" filter is selected.
-    - Should verify that the filter selection persists when navigating between pages (e.g. returning to the product grid).
-    - Should handle cases where multiple products have the same price and maintain a stable secondary sorting (e.g. sorted by name).
-    - Should default to "Name (A to Z)" upon page load if no filter is explicitly applied
-    - Should allow the user to switch between filters without reloading the page
-    - Should display the selected filter at the top right of the page to indicate the applied filter
-    - Should ensure no products are duplicated or missing after applying any filter.
-    - Should verify that the applied filter is cleared upon logout and does not persist for a new session.
+- Product Inventory:
+    - Grid view
+        - Should display all products available in a grid layout after successful login.
+        - Should adjust the grid layout dynamically for different screen sizes.
+        - Should display product details (name, price, and thumbnail image) specific to each product in the grid.
+        - Should be able to display product description for each item in the grid. 
+        - Should maintain consistent grid alignment across various screen sizes and resolutions.
+        - Should ensure that clicking the product image or name navigates to the product detailed view page.    
+        - Should correctly display products based on active filters and sorting criteria.
+        - Should not display any duplicate products in the grid view.
+        - When a product is out of stock, should clearly display an "Out of Stock" badge or equivalent.
+        - Should display the correct price for all products shown in the grid.
+        - Should allow users to add products to the cart directly from the grid view, and see the cart icon be updated with number of items in the cart.
+        - Should be able to add a product to the cart from the product grid view. 
+        - Should ensure that the 'Add to Cart' button changes to 'Remove' when the product is added to the cart.
+        - Should not be able to click on the 'Add to cart' button for an item and see the cart not updated.
+        - Should ensure that adding or removing products updates the cart count and state without requiring a page reload.
+        - Should not display the 'Add to cart' button as disabled.
+        - Should show the correct product count in the grid view and cart when items are added or removed.
 
-- Product grid view
-    - Should display all products available in a grid layout after successful login.
-    - Should adjust the grid layout dynamically for different screen sizes.
-    - Should display product details (name, price, and thumbnail image) specific to each product in the grid.
-    - Should be able to display product description for each item in the grid. 
-    - Should maintain consistent grid alignment across various screen sizes and resolutions.
-    - Should ensure that clicking the product image or name navigates to the product detailed view page.    
-    - Should correctly display products based on active filters and sorting criteria.
-    - Should not display any duplicate products in the grid view.
-    - When a product is out of stock, should clearly display an "Out of Stock" badge or equivalent.
-    - Should display the correct price for all products shown in the grid.
-    - Should allow users to add products to the cart directly from the grid view, and see the cart icon be updated with number of items in the cart.
-    - Should be able to add a product to the cart from the product grid view. 
-    - Should ensure that the 'Add to Cart' button changes to 'Remove' when the product is added to the cart.
-    - Should not be able to click on the 'Add to cart' button for an item and see the cart not updated.
-    - Should ensure that adding or removing products updates the cart count and state without requiring a page reload.
-    - Should not display the 'Add to cart' button as disabled.
-    - Should show the correct product count in the grid view and cart when items are added or removed.
-
-- Product detailed view
-    - Should allow the user to navigate to the product detailed view by clicking the product name or image from the product grid.
-    - Should display a 'Back to Products' button that navigates back to the product grid view.
-    - Should be redirected back to the product grid view when the 'Back to Products' button is clicked.
-    - Should retain the filter or sort state applied in the product grid when navigating back.
-    - Should be able to display the correct product image, name, description, price and 'Add to Cart' or 'Remove' button based on the product state when viewing the detailed view. 
-    - Should be able to display the same product details as displayed for the product in the product grid view. 
-    - Should be able to add a product to the cart from the product detailed view. 
-    - Should ensure the 'Add to Cart' button changes to 'Remove' when the product is added to the cart.
-    - Should allow the user to add the product to the cart by clicking the 'Add to Cart' button. 
-    - Should update the cart icon or badge to reflect the updated cart count after adding the product.
-    - Should allow the user to remove the product from the cart by clicking the 'Remove' button.
-    - Should display the correct button state ('Add to Cart' or 'Remove') when revisiting the detailed view for a product already in the cart.
-    - Should display an error message if the product details fail to load
+    - Detailed view
+        - Should allow the user to navigate to the product detailed view by clicking the product name or image from the product grid.
+        - Should display a 'Back to Products' button that navigates back to the product grid view.
+        - Should be redirected back to the product grid view when the 'Back to Products' button is clicked.
+        - Should retain the filter or sort state applied in the product grid when navigating back.
+        - Should be able to display the correct product image, name, description, price and 'Add to Cart' or 'Remove' button based on the product state when viewing the detailed view. 
+        - Should be able to display the same product details as displayed for the product in the product grid view. 
+        - Should be able to add a product to the cart from the product detailed view. 
+        - Should ensure the 'Add to Cart' button changes to 'Remove' when the product is added to the cart.
+        - Should allow the user to add the product to the cart by clicking the 'Add to Cart' button. 
+        - Should update the cart icon or badge to reflect the updated cart count after adding the product.
+        - Should allow the user to remove the product from the cart by clicking the 'Remove' button.
+        - Should display the correct button state ('Add to Cart' or 'Remove') when revisiting the detailed view for a product already in the cart.
+        - Should display an error message if the product details fail to load
 
 - Cart 
     - Should allow users to add products to the cart from the product grid view and product detail pages.
