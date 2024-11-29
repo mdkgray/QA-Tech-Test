@@ -55,7 +55,7 @@ class ProductPage(SeleniumDriver):
     def clickHamburgerMenu(self):
         """Clicks the hamburger menu."""
         try:
-            self.elementClick(self._PRODUCT_MENU_HAMBURGER_LOCATOR, locatorType="xpath")
+            self.clickElement(self._PRODUCT_MENU_HAMBURGER_LOCATOR, locatorType="xpath")
             logging.info("Clicked on hamburger menu")
         except (TimeoutException, NoSuchElementException) as e:
             logging.error(f"Error clicking hamburger menu: {e}")
@@ -67,7 +67,7 @@ class ProductPage(SeleniumDriver):
     def clickToLogout(self):
         """Clicks the logout button."""
         try:
-            self.elementClick(self._LOGOUT_BUTTON_LOCATOR, locatorType="xpath")
+            self.clickElement(self._LOGOUT_BUTTON_LOCATOR, locatorType="xpath")
             logging.info("Clicked on logout button")
         except (TimeoutException, NoSuchElementException) as e:
             logging.error(f"Error clicking logout button: {e}")
@@ -116,7 +116,7 @@ class ProductPage(SeleniumDriver):
             self.scrollToElement(locator)
             element = self.driver.find_element(By.XPATH, locator)
             if element.text == "Add to cart":
-                self.elementClick(locator, locatorType="xpath")
+                self.clickElement(locator, locatorType="xpath")
                 logging.info(f"Added {product} to cart")
                 return True
             else:
@@ -136,7 +136,7 @@ class ProductPage(SeleniumDriver):
             self.scrollToElement(locator)
             element = self.driver.find_element(By.XPATH, locator)
             if element.text == "Remove":
-                self.elementClick(locator, locatorType="xpath")
+                self.clickElement(locator, locatorType="xpath")
                 logging.info(f"Removed {product} from cart")
                 return True
             else:
