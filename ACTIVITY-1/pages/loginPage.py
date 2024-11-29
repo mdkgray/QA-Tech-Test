@@ -117,13 +117,14 @@ class LoginPage(SeleniumDriver):
             logging.error(f"Unexpected error validating login page title text: {e}")
             raise
 
-    def login(self, username='', password=''):
+    def login(self, username, password):
         """Performs the login action."""
         try:
             self.validateLoginPageTitleText()
             self.enterUsername(username)
             self.enterPassword(password)
             self.clickLoginButton()
+            logging.info("Logged in with username: {}".format(username))
         except Exception as e:
             logging.error(f"Error during login: {e}")
             raise
