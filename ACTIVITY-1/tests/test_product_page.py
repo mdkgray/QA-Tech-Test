@@ -1,20 +1,23 @@
 import logging
 import pytest
 import unittest
-
+from selenium import webdriver
 from pages.productPage import ProductPage
 from pages.loginPage import LoginPage
 from utils.config_reader import ConfigReader
 
+# Setting up logging configuration
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
 @pytest.mark.usefixtures("oneTimeSetUp", "setUp")
 class ProductPageTests(unittest.TestCase):
-    
+
     @pytest.fixture(autouse=True)
     def objectSetup(self):
         self.lp = LoginPage(self.driver)
         self.pp = ProductPage(self.driver)
         self.cr = ConfigReader()
-    
+
     # Test to validate there are products listed on the product page
     @pytest.mark.productPage
     def test_get_all_products(self):
@@ -65,7 +68,6 @@ class ProductPageTests(unittest.TestCase):
         assert self.pp.getNumberOfItemsInCart() == 1
         self.pp.logout()
         logging.info("Finished test: test_add_product_to_cart")
-    
     
     # Test to remove a product from the cart
     @pytest.mark.productPage
