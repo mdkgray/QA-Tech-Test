@@ -1,4 +1,5 @@
 import logging
+from selenium import webdriver
 from base.seleniumDriver import SeleniumDriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
