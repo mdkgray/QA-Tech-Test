@@ -8,3 +8,9 @@ def get_product_data():
         {"name": "Sauce Labs Onesie", "price": "$7.99", "quantity": "1"},
         {"name": "Test.allTheThings() T-Shirt (Red)", "price": "$15.99", "quantity": "1"},
     ]
+    
+def get_invalid_product_data():
+    return [
+        {"name": "Lab Source Pack Back"},
+        {"name": "Twosie Sauce Labs"},
+    ]
