@@ -16,7 +16,7 @@ class CartPage(SeleniumDriver):
 
     def __new__(cls, driver):
         if cls._instance is None:
-            cls._instance = super(cartPage, cls).__new__(cls)
+            cls._instance = super(CartPage, cls).__new__(cls)
             cls._instance._initialize(driver)
         return cls._instance
     
