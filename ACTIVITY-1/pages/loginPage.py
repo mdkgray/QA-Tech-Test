@@ -3,7 +3,7 @@ from base.seleniumDriver import SeleniumDriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
-# Setting up logging configuration globally
+# Setting up logging configuration globally at the application entry point
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class LoginPage(SeleniumDriver):
@@ -31,25 +31,45 @@ class LoginPage(SeleniumDriver):
             self.clearField(locator)
             self.sendKeys(data, locator)
             logging.info(f"Sent data to element with locator: {locator}")
-        except Exception as e:
+        except (TimeoutException, NoSuchElementException) as e:
             logging.error(f"Error in clearAndSendKeys for locator: {locator}. Error: {e}")
+            raise
+        except Exception as e:
+            logging.error(f"Unexpected error in clearAndSendKeys for locator: {locator}. Error: {e}")
             raise
 
     def enterUsername(self, username):
         """Clears and enters username."""
-        self.clearAndSendKeys(self._USERNAME_INPUT_LOCATOR, username)
+        try:
+            self.clearAndSendKeys(self._USERNAME_INPUT_LOCATOR, username)
+        except (TimeoutException, NoSuchElementException) as e:
+            logging.error(f"Error entering username: {e}")
+            raise
+        except Exception as e:
+            logging.error(f"Unexpected error entering username: {e}")
+            raise
 
     def enterPassword(self, password):
         """Clears and enters password."""
-        self.clearAndSendKeys(self._PASSWORD_INPUT_LOCATOR, password)
+        try:
+            self.clearAndSendKeys(self._PASSWORD_INPUT_LOCATOR, password)
+        except (TimeoutException, NoSuchElementException) as e:
+            logging.error(f"Error entering password: {e}")
+            raise
+        except Exception as e:
+            logging.error(f"Unexpected error entering password: {e}")
+            raise
 
     def clickLoginButton(self):
         """Clicks the login button."""
         try:
-            self.elementClick(self._LOGIN_BUTTON_LOCATOR, locatorType="xpath")
+            self.clickElement(self._LOGIN_BUTTON_LOCATOR, locatorType="xpath")
             logging.info("Clicked on login button")
-        except Exception as e:
+        except (TimeoutException, NoSuchElementException) as e:
             logging.error(f"Error clicking login button: {e}")
+            raise
+        except Exception as e:
+            logging.error(f"Unexpected error clicking login button: {e}")
             raise
 
     def getLoginErrorMessageText(self):
@@ -61,6 +81,9 @@ class LoginPage(SeleniumDriver):
             return element.text
         except (TimeoutException, NoSuchElementException) as e:
             logging.error(f"Error retrieving login error message: {e}")
+            return None
+        except Exception as e:
+            logging.error(f"Unexpected error retrieving login error message: {e}")
             return None
 
     def getLoginPageTitleText(self):
@@ -75,18 +98,32 @@ class LoginPage(SeleniumDriver):
             return None
 
     def validateLoginPageTitleText(self):
-        """Validates that the login page title text matches expected value."""
-        title_text = self.getLoginPageTitleText()
-        if title_text:
-            logging.info(f"Login Page Header Text: {title_text}")
-            assert title_text == "Swag Labs", f"Expected 'Swag Labs', but got '{title_text}'"
-        else:
-            logging.error("Login page title text could not be retrieved.")
-            raise AssertionError("Login page title text is missing.")
+        """Validates that the login page title text matches the expected value."""
+        try:
+            login_title_text = self.getLoginPageTitleText()
+            if login_title_text:
+                logging.info(f"Login Page Header Text: {login_title_text}")
+                assert login_title_text == "Swag Labs", f"Expected 'Swag Labs', but got '{login_title_text}'"
+            else:
+                logging.error("Login page title text could not be found.")
+                raise AssertionError("Login page title assertion failed")
+        except AssertionError as ae:
+            logging.error(f"Assertion error validating login page title text: {ae}")
+            raise
+        except (TimeoutException, NoSuchElementException) as e:
+            logging.error(f"Error retrieving login page title text: {e}")
+            raise
+        except Exception as e:
+            logging.error(f"Unexpected error validating login page title text: {e}")
+            raise
 
     def login(self, username='', password=''):
         """Performs the login action."""
-        self.validateLoginPageTitleText()
-        self.enterUsername(username)
-        self.enterPassword(password)
-        self.clickLoginButton()
+        try:
+            self.validateLoginPageTitleText()
+            self.enterUsername(username)
+            self.enterPassword(password)
+            self.clickLoginButton()
+        except Exception as e:
+            logging.error(f"Error during login: {e}")
+            raise
