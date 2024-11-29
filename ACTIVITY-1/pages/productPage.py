@@ -35,7 +35,7 @@ class ProductPage(SeleniumDriver):
             logging.error(f"Error retrieving product page title text: {e}")
             return None
     
-    def validateProductPageTitle(self):
+    def assertProductPageTitle(self):
         """Validates the product page title matches the expected value."""
         try:
             product_title_text = self.getProductPageTitleText()

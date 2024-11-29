@@ -30,7 +30,7 @@ class TestCartPage(unittest.TestCase):
         username = self.cr.getStandardUser()
         password = self.cr.getPassword()
         self.lp.login(username, password)
-        self.pp.validateProductPageTitle()
+        self.pp.assertProductPageTitle()
 
         for product in products:
             assert self.pp.addProductToCart(product["name"]) == True

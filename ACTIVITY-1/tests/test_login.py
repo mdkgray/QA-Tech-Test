@@ -27,7 +27,7 @@ class LoginTests(unittest.TestCase):
         self.lp.enterUsername(username)
         self.lp.enterPassword(password)
         self.lp.clickLoginButton()
-        self.pp.validateProductPageTitle()
+        self.pp.assertProductPageTitle()
         self.pp.logout() 
         logging.info("Finished test: test_valid_login")
         

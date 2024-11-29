@@ -66,7 +66,7 @@ class CartPage(SeleniumDriver):
             logging.error(f"Error clicking checkout button: {e}")
             return False
         
-    def validateCartTitle(self):
+    def assertCartTitle(self):
         """Validates the cart title matches the expected value."""
         try:
             cart_title_text = self.getCartTitleText()
@@ -83,7 +83,7 @@ class CartPage(SeleniumDriver):
             logging.error(f"Unexpected error validating cart title: {e}")
             raise
         
-    def validateItemsInCart(self, productDetails):
+    def assertItemsInCart(self, productDetails):
         """Validates the items in the cart match the expected values."""
         try:
             products_added = list(productDetails.keys())
@@ -125,8 +125,8 @@ class CartPage(SeleniumDriver):
         try:
             self.clickCartIcon()
             logging.info("Clicked on cart icon")
-            self.validateCartTitle()
-            self.validateItemsInCart(products)
+            self.assertCartTitle()
+            self.assertCartTitle(products)
             self.screenShot()
         except (TimeoutException, NoSuchElementException) as e:
             logging.error(f"Error validating cart accuracy: {e}")

@@ -25,7 +25,7 @@ class TestProductPage(unittest.TestCase):
         username = self.cr.getStandardUser()
         password = self.cr.getPassword()
         self.lp.login(username, password)
-        self.pp.validateProductPageTitle()
+        self.pp.assertProductPageTitle()
         productNames = self.pp.getProductName()
         print('Products:', productNames)
         assert len(productNames) > 0
@@ -40,7 +40,7 @@ class TestProductPage(unittest.TestCase):
         username = self.cr.getStandardUser()
         password = self.cr.getPassword()
         self.lp.login(username, password)
-        self.pp.validateProductPageTitle()
+        self.pp.assertProductPageTitle()
         assert self.pp.isProductListed(product["name"]) == True
         self.pp.logout()
         logging.info(f"Finished test: test_is_product_valid for {product['name']}")
@@ -53,7 +53,7 @@ class TestProductPage(unittest.TestCase):
         username = self.cr.getStandardUser()
         password = self.cr.getPassword()
         self.lp.login(username, password)
-        self.pp.validateProductPageTitle()
+        self.pp.assertProductPageTitle()
         assert self.pp.isProductListed(product["name"]) == False
         self.pp.logout()
         logging.info(f"Finished test: test_is_product_invalid for {product['name']}")
@@ -66,7 +66,7 @@ class TestProductPage(unittest.TestCase):
         username = self.cr.getStandardUser()
         password = self.cr.getPassword()
         self.lp.login(username, password)
-        self.pp.validateProductPageTitle()
+        self.pp.assertProductPageTitle()
         assert self.pp.addProductToCart(product["name"]) == True
         assert self.pp.getNumberOfItemsInCart() == 1
         # Remove the product from the cart after the assertion
@@ -83,7 +83,7 @@ class TestProductPage(unittest.TestCase):
         username = self.cr.getStandardUser()
         password = self.cr.getPassword()
         self.lp.login(username, password)
-        self.pp.validateProductPageTitle()
+        self.pp.assertProductPageTitle()
         assert self.pp.addProductToCart(product["name"]) == True
         assert self.pp.getNumberOfItemsInCart() == 1
         assert self.pp.removeProductFromCart(product["name"]) == True

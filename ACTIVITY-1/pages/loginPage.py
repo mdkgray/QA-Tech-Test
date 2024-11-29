@@ -97,7 +97,7 @@ class LoginPage(SeleniumDriver):
             logging.error(f"Error retrieving login page title text: {e}")
             return None
 
-    def validateLoginPageTitleText(self):
+    def assertLoginPageTitleText(self):
         """Validates that the login page title text matches the expected value."""
         try:
             login_title_text = self.getLoginPageTitleText()
@@ -120,7 +120,7 @@ class LoginPage(SeleniumDriver):
     def login(self, username, password):
         """Performs the login action."""
         try:
-            self.validateLoginPageTitleText()
+            self.assertLoginPageTitleText()
             self.enterUsername(username)
             self.enterPassword(password)
             self.clickLoginButton()
