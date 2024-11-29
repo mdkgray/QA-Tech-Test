@@ -3,7 +3,7 @@ from base.seleniumDriver import SeleniumDriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
-class cartPage(SeleniumDriver):
+class CartPage(SeleniumDriver):
     _instance = None
     
     # Page locators
@@ -43,24 +43,7 @@ class cartPage(SeleniumDriver):
         except (TimeoutException, NoSuchElementException) as e:
             logging.error(f"Error retrieving cart title text: {e}")
             return None
-        
-    def validateCartPageTitle(self):
-        """Validates the cart page title matches the expected value."""
-        try:
-            cart_title_text = self.getCartTitleText()
-            if cart_title_text:
-                logging.info(f"Cart Title Text: {cart_title_text}")
-                assert cart_title_text == "Your Cart", f"Expected 'Your Cart', but got '{cart_title_text}'"
-            else:
-                logging.error("Cart title text could not be found.")
-                raise AssertionError("Cart title assertion failed")
-        except AssertionError as ae:
-            logging.error(f"Assertion error validating cart title: {ae}")
-            raise
-        except Exception as e:
-            logging.error(f"Unexpected error validating cart title: {e}")
-            raise
-        
+                
     def clickContinueShoppingButton(self):
         """Clicks the continue shopping button."""
         try:
