@@ -22,6 +22,7 @@ class TestCartPage(unittest.TestCase):
         self.pp = ProductPage(self.driver)
         self.cr = ConfigReader()
 
+    # Test to add and remove products from the cart and validate the cart is updated with the correct products
     @pytest.mark.cart
     @pytest.mark.parametrize("products", [get_product_data()])
     def test_add_remove_products_and_verify_cart(self, products):
