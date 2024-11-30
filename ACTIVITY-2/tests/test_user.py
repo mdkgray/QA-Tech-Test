@@ -99,7 +99,7 @@ class TestUser:
         assert response is not None
         logging.info("Finished test: test_delete_user_by_username")
 
-    @pytest.mark.loginuser
+    @pytest.mark.login
     def test_login_user(self):
         logging.info("Starting test: test_login_user")
         username = "johndoe"
@@ -108,7 +108,7 @@ class TestUser:
         assert response is not None
         logging.info("Finished test: test_login_user")
 
-    @pytest.mark.logoutuser
+    @pytest.mark.logout
     def test_logout_user(self):
         logging.info("Starting test: test_logout_user")
         response = self.user_api.logoutUser()
