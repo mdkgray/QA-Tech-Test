@@ -17,7 +17,7 @@ class TestCartPage(unittest.TestCase):
 
     @pytest.fixture(autouse=True)
     def objectSetup(self):
-        self.cp = CartPage(self.driver)
+        self.cart = CartPage(self.driver)
         self.lp = LoginPage(self.driver)
         self.pp = ProductPage(self.driver)
         self.cr = ConfigReader()
@@ -39,8 +39,8 @@ class TestCartPage(unittest.TestCase):
         assert self.pp.getNumberOfItemsInCart() == len(products)
 
         product_details = {f"product{i+1}": product for i, product in enumerate(products)}
-        self.cp.validateCart(product_details)
-        self.cp.clickContinueShoppingButton()
+        self.cart.validateCart(product_details)
+        self.cart.clickContinueShoppingButton()
 
         for product in products:
             assert self.pp.removeProductFromCart(product["name"]) == True
