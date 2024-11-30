@@ -70,3 +70,9 @@ pytest tests/test_store.py -v -s --html=reports/petReport.html
 # Run tests for the User endpoint
 pytest tests/test_user.py -v -s --html=reports/petReport.html
 ```
+
+- **Run tests using a specific pytest marker**
+```bash
+# Run tests for the User endpoint
+python -m pytest -m {MARKER_NAME}
+```
