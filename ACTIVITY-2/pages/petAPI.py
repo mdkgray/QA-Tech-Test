@@ -1,5 +1,3 @@
-import os
-import json
 import urllib3
 import logging
 from base.baseAPI import BaseAPI
