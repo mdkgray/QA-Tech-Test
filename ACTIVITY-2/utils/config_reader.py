@@ -87,6 +87,11 @@ class ConfigReader:
         return endpoint
     
     @staticmethod
+    def getUpdateUserEndpoint():
+        endpoint = configReader.get('user', 'updateUserByUsername')
+        return endpoint
+    
+    @staticmethod
     def getDeleteUserByUsernameEndpoint():
         endpoint = configReader.get('user', 'deleteUserByUsername')
         return endpoint
