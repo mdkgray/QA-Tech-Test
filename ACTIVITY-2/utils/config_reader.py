@@ -5,7 +5,7 @@ configReader = configparser.ConfigParser()
 config_path = os.path.join(os.path.dirname(__file__), '..', 'config', 'config.ini')
 configReader.read(config_path)
 
-class configReader:
+class ConfigReader:
     @staticmethod
     def getBaseURL():
         url = configReader.get('api_info', 'baseURL')
