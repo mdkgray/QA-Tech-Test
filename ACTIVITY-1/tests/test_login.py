@@ -44,6 +44,3 @@ class LoginTests(unittest.TestCase):
         expectedErrorMessage = "Epic sadface: Sorry, this user has been locked out."
         assert errorMessage == expectedErrorMessage
         logging.info("Finished test: test_invalid_login")
-
-if __name__ == "__main__":
-    unittest.main()
