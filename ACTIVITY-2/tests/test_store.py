@@ -12,10 +12,8 @@ class TestStore:
     @pytest.fixture(autouse=True)
     def objectSetup(self):
         self.baseURL = ConfigReader.getBaseURL()
-        self.store_api = StoreAPI()
+        self.store_api = StoreAPI(self.baseURL)
 
-    # Test to place an order in the store
-    @pytest.mark.placeorder
     def test_place_order(self):
         logging.info("Starting test: test_place_order")
         order_data = {
@@ -31,8 +29,6 @@ class TestStore:
         assert response['id'] == 1
         logging.info("Finished test: test_place_order")
 
-    # Test to retrieve an order by its ID
-    @pytest.mark.getorder
     def test_get_order_by_id(self):
         logging.info("Starting test: test_get_order_by_id")
         order_id = 1
@@ -41,8 +37,6 @@ class TestStore:
         assert response['id'] == order_id
         logging.info("Finished test: test_get_order_by_id")
 
-    # Test to delete an order by its ID
-    @pytest.mark.deleteorder
     def test_delete_order_by_id(self):
         logging.info("Starting test: test_delete_order_by_id")
         

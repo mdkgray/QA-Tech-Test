@@ -6,13 +6,14 @@ from utils.config_reader import ConfigReader
 class StoreAPI(BaseAPI):
     instance = None
     
-    def __new__(cls):
+    def __new__(cls, base_url):
         if cls.instance is None:
             cls.instance = super(StoreAPI, cls).__new__(cls)
-            cls.instance._initialize()
+            cls.instance._initialize(base_url)
         return cls.instance
     
-    def _initialize(self):
+    def _initialize(self, base_url):
+        super().__init__(base_url)
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         
     def placeOrder(self, order_data):
