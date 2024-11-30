@@ -6,13 +6,14 @@ from utils.config_reader import ConfigReader
 class PetAPI(BaseAPI):
     instance = None
     
-    def __new__(cls):
+    def __new__(cls, base_url):
         if cls.instance is None:
             cls.instance = super(PetAPI, cls).__new__(cls)
-            cls.instance._initialize()
+            cls.instance._initialize(base_url)
         return cls.instance
     
-    def _initialize(self):
+    def _initialize(self, base_url):
+        super().__init__(base_url)
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         
     def addNewPet(self, pet_data):
@@ -34,7 +35,7 @@ class PetAPI(BaseAPI):
     def getPetById(self, pet_id):
         """Retrieves a pet by its ID."""
         try:
-            endpoint = ConfigReader.getPetByIDEndpoint().format(pet_id=pet_id)
+            endpoint = ConfigReader.getPetByIdEndpoint().format(pet_id=pet_id)
             headers = self.get_header_details()
             response = self.api_GET(endpoint, headers=headers)
             if response:

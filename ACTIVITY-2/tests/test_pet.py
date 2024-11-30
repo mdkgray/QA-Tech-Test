@@ -1,5 +1,4 @@
 import pytest
-import unittest
 import logging
 from pages.petAPI import PetAPI
 from utils.config_reader import ConfigReader
@@ -8,12 +7,12 @@ from utils.config_reader import ConfigReader
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 @pytest.mark.pet
-class TestPet(unittest.TestCase):
+class TestPet:
     
     @pytest.fixture(autouse=True)
     def objectSetup(self):
         self.baseURL = ConfigReader.getBaseURL()
-        self.pet_api = PetAPI()
+        self.pet_api = PetAPI(self.baseURL)
 
     @pytest.mark.addpet
     def test_add_new_pet(self):
@@ -27,9 +26,9 @@ class TestPet(unittest.TestCase):
             "status": "available"
         }
         response = self.pet_api.addNewPet(pet_data)
-        self.assertIsNotNone(response)
-        self.assertEqual(response['name'], "Hank")
-        self.assertEqual(response['id'], 12345)
+        assert response is not None
+        assert response['name'] == "Hank"
+        assert response['id'] == 12345
         logging.info("Finished test: test_add_new_pet")
 
     @pytest.mark.getpet
@@ -37,8 +36,8 @@ class TestPet(unittest.TestCase):
         logging.info("Starting test: test_get_pet_by_id")
         pet_id = 12345
         response = self.pet_api.getPetById(pet_id)
-        self.assertIsNotNone(response)
-        self.assertEqual(response['id'], pet_id)
+        assert response is not None
+        assert response['id'] == pet_id
         logging.info("Finished test: test_get_pet_by_id")
 
     @pytest.mark.updatepet
@@ -55,13 +54,13 @@ class TestPet(unittest.TestCase):
             "status": "available"
         }
         add_response = self.pet_api.addNewPet(pet_data)
-        self.assertIsNotNone(add_response)
+        assert add_response is not None
         
         # Retrieve the pet by ID
         pet_id = 54321
         get_response = self.pet_api.getPetById(pet_id)
-        self.assertIsNotNone(get_response)
-        self.assertEqual(get_response['id'], pet_id)
+        assert get_response is not None
+        assert get_response['id'] == pet_id
         
         # Update the pet
         updated_pet_data = {
@@ -73,8 +72,8 @@ class TestPet(unittest.TestCase):
             "status": "pending"
         }
         update_response = self.pet_api.updatePet(updated_pet_data)
-        self.assertIsNotNone(update_response)
-        self.assertEqual(update_response['name'], "Buddy Updated")
+        assert update_response is not None
+        assert update_response['name'] == "Buddy Updated"
         logging.info("Finished test: test_update_pet")
 
     @pytest.mark.deletepetbyid
@@ -91,15 +90,15 @@ class TestPet(unittest.TestCase):
             "status": "available"
         }
         add_response = self.pet_api.addNewPet(pet_data)
-        self.assertIsNotNone(add_response)
+        assert add_response is not None
         
         # Retrieve the pet by ID
         pet_id = 33212
         get_response = self.pet_api.getPetById(pet_id)
-        self.assertIsNotNone(get_response)
-        self.assertEqual(get_response['id'], pet_id)
+        assert get_response is not None
+        assert get_response['id'] == pet_id
         
         # Delete the pet
         delete_response = self.pet_api.deletePet(pet_id)
-        self.assertIsNotNone(delete_response)
+        assert delete_response is not None
         logging.info("Finished test: test_delete_pet")
