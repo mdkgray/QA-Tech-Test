@@ -44,14 +44,29 @@ git pull origin
 #Navigate to the project 
 cd QA-TECH-TEST
 
-#Create and activate a new virtual environment 
-python3 -m venv {{NAME_OF_YOUR_VENV}}
-source {{NAME_OF_YOUR_VENV}}/bin/activate 
+#Navigate to ACTIVITY-2
+cd ACTIVITY-2 
 
 #Install project requirements
 pip install -r requirements.txt
 ```
 
 ## Run Tests
+Run the following commands to execute the tests:
 
-<!-- TODO: Add scripts to run tests -->
+- **Tests related to Pets**
+```bash
+# Run tests for the Pet endpoint
+pytest tests/test_pet.py -v -s --html=reports/petReport.html
+```
+- **Tests related to Store**
+```bash
+# Run tests for the Store endpoint
+pytest tests/test_store.py -v -s --html=reports/petReport.html
+```
+
+- **Tests related to User**
+```bash
+# Run tests for the User endpoint
+pytest tests/test_user.py -v -s --html=reports/petReport.html
+```
