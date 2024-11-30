@@ -58,7 +58,7 @@ class TestPet(unittest.TestCase):
         self.assertIsNotNone(add_response)
         
         # Retrieve the pet by ID
-        pet_id = 12345
+        pet_id = 54321
         get_response = self.pet_api.getPetById(pet_id)
         self.assertIsNotNone(get_response)
         self.assertEqual(get_response['id'], pet_id)
@@ -77,7 +77,7 @@ class TestPet(unittest.TestCase):
         self.assertEqual(update_response['name'], "Buddy Updated")
         logging.info("Finished test: test_update_pet")
 
-    @pytest.mark.deletepet
+    @pytest.mark.deletepetbyid
     def test_delete_pet(self):
         logging.info("Starting test: test_delete_pet")
         
