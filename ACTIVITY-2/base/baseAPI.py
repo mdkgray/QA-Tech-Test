@@ -1,5 +1,3 @@
-import json 
-import os
 import logging
 import requests
 from utils.config_reader import ConfigReader
