@@ -103,6 +103,3 @@ class TestPet(unittest.TestCase):
         delete_response = self.pet_api.deletePet(pet_id)
         self.assertIsNotNone(delete_response)
         logging.info("Finished test: test_delete_pet")
-
-if __name__ == "__main__":
-    unittest.main()
