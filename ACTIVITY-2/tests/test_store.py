@@ -14,6 +14,7 @@ class TestStore:
         self.baseURL = ConfigReader.getBaseURL()
         self.store_api = StoreAPI(self.baseURL)
 
+    @pytest.mark.placeorder
     def test_place_order(self):
         logging.info("Starting test: test_place_order")
         order_data = {
@@ -29,6 +30,7 @@ class TestStore:
         assert response['id'] == 1
         logging.info("Finished test: test_place_order")
 
+    @pytest.mark.getorder
     def test_get_order_by_id(self):
         logging.info("Starting test: test_get_order_by_id")
         order_id = 1
@@ -37,6 +39,7 @@ class TestStore:
         assert response['id'] == order_id
         logging.info("Finished test: test_get_order_by_id")
 
+    @pytest.mark.deleteorder
     def test_delete_order_by_id(self):
         logging.info("Starting test: test_delete_order_by_id")
         
