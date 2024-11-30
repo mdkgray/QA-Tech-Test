@@ -20,6 +20,7 @@ class TestProductPage(unittest.TestCase):
         self.cr = ConfigReader()
 
     # Test to validate there are products listed on the product page
+    @pytest.mark.productPage
     def test_get_all_products(self):
         logging.info("Starting test: test_get_all_products")
         username = self.cr.getStandardUser()
