@@ -42,7 +42,7 @@ class ConfigReader:
         return endpoint
     
     @staticmethod
-    def getUpdatePeyByIdEndpoint():
+    def getUpdatePetByIdEndpoint():
         endpoint = configReader.get('pet', 'updatePetById')
         return endpoint
     
