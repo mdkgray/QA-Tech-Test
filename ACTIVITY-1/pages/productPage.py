@@ -155,7 +155,7 @@ class ProductPage(SeleniumDriver):
             self.waitForElement(self._CART_COUNT_LOCATOR, locatorType="xpath")
             element = self.driver.find_element(By.XPATH, self._CART_COUNT_LOCATOR)
             logging.info("Retrieved cart count")
-            return int(element.text)
+            return int(element.text) if element.text else 0
         except (TimeoutException, NoSuchElementException) as e:
             logging.error(f"Error retrieving cart count: {e}")
-            return None
+            return 0
