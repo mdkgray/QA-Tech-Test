@@ -172,3 +172,24 @@
         - Should be able to return a response code of 404 when the request contains an invalid username
         - Should not be able to delete a user with a missing username
         - Should be able to return a response code of 400 when the request contains an empty or `null` username
+
+## DECISIONS AND REASONS
+
+### Python using the Python Requests Library
+1. **Ease of Use**
+    - The `requests` library has a simple and intuitive syntax, making it easy to write and understand HTTP requests.
+    - Python's readability and clean syntax make it easier to write and maintain test scripts.
+
+2. **Comprehensive HTTP Support**
+    - The `requests` library supports all HTTP methods (GET, POST, PUT, DELETE, etc.), allowing comprehensive testing of REST APIs.
+    - Easily add headers, query parameters, and body data to requests.
+
+3. **Error Handling**
+    - The `requests` library provides built-in error handling for common HTTP errors, making it easier to handle and debug issues.
+    - Easily check and assert HTTP status codes in responses.
+
+4. **JSON Support**
+    - The `requests` library has built-in support for JSON, making it easy to send and receive JSON data.
+    - Easily serialise Python objects to JSON and deserialise JSON responses to Python objects.
+5. **Extensibility**
+    - Python has a rich ecosystem of plugins and extensions that can be used to enhance testing capabilities (e.g., `pytest` for test management, `responses` for mocking HTTP requests).
