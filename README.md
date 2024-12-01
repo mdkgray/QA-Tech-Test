@@ -6,4 +6,4 @@ This **QA-Tech-Test** repository contains the test strategy and automation for t
 
 ---
 
-Detailed project description can be found in the README located in the folder of each activity. 
+Detailed project description can be found in the `README.md` located in the folder of each activity. 
