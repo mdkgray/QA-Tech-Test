@@ -64,13 +64,11 @@ pytest tests/test_pet.py -v -s --html=reports/petReport.html
 # Run tests for the Store endpoint
 pytest tests/test_store.py -v -s --html=reports/storeReport.html
 ```
-
 - **Tests related to User**
 ```bash
 # Run tests for the User endpoint
 pytest tests/test_user.py -v -s --html=reports/userReport.html
 ```
-
 - **Run tests using a specific pytest marker**
 ```bash
 # Run tests for the User endpoint
