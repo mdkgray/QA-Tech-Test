@@ -1,7 +1,5 @@
 import logging
 import pytest
-import unittest
-from selenium import webdriver
 from pages.checkoutPage import CheckoutPage
 from pages.loginPage import LoginPage
 from pages.productPage import ProductPage
@@ -13,7 +11,7 @@ from utils.product_data import get_product_data
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 @pytest.mark.usefixtures("oneTimeSetUp", "setUp")
-class TestCheckoutPage(unittest.TestCase):
+class TestCheckoutPage:
 
     @pytest.fixture(autouse=True)
     def objectSetup(self):
@@ -38,5 +36,5 @@ class TestCheckoutPage(unittest.TestCase):
 
         self.cart.clickCartIcon()
         self.cart.clickCheckoutButton()
-        self.cp.completeCheckout(products)
+        self.cp.completeCheckout("John", "Doe", "2000", products)
         logging.info("Finished test: test_checkout_items")

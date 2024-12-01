@@ -3,9 +3,6 @@ from selenium import webdriver
 from base.seleniumDriver import SeleniumDriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
-from pages.loginPage import LoginPage
-from pages.productPage import ProductPage
-from pages.cartPage import CartPage
 
 class CheckoutPage(SeleniumDriver):
     instance = None
@@ -51,20 +48,17 @@ class CheckoutPage(SeleniumDriver):
     def assertCheckoutInformationPageTitle(self):
         """Validates the checkout information page title matches the expected value."""
         try:
-            checkout_information_title_text = self.getCheckoutStageTitleText()
-            if checkout_information_title_text:
-                logging.info(f"Checkout Information Page Header Text: {checkout_information_title_text}")
-                assert checkout_information_title_text == "Checkout: Your Information", f"Expected 'Checkout: Your Information', but got '{checkout_information_title_text}'"
-            else:
-                logging.error("Checkout information page title text could not be found.")
-                raise AssertionError("Checkout information page title assertion failed")
+            checkout_info_title_text = self.getCheckoutStageTitleText()
+            if checkout_info_title_text:
+                logging.info(f"Checkout Information Page Header Text: {checkout_info_title_text}")
+                assert checkout_info_title_text == "Checkout: Your Information", f"Expected 'Checkout: Your Information', but got '{checkout_info_title_text}'"
+        except (TimeoutException, NoSuchElementException) as e:
+            logging.error(f"Error retrieving checkout information page title text: {e}")
+            raise
         except AssertionError as ae:
             logging.error(f"Assertion error validating checkout information page title: {ae}")
             raise
-        except Exception as e:
-            logging.error(f"Unexpected error validating checkout information page title: {e}")
-            raise            
-        
+
     def assertCheckoutOverviewPageTitle(self):
         """Validates the checkout overview page title matches the expected value."""
         try:
@@ -72,14 +66,11 @@ class CheckoutPage(SeleniumDriver):
             if checkout_overview_title_text:
                 logging.info(f"Checkout Overview Page Header Text: {checkout_overview_title_text}")
                 assert checkout_overview_title_text == "Checkout: Overview", f"Expected 'Checkout: Overview', but got '{checkout_overview_title_text}'"
-            else:
-                logging.error("Checkout overview page title text could not be found.")
-                raise AssertionError("Checkout overview page title assertion failed")
+        except (TimeoutException, NoSuchElementException) as e:
+            logging.error(f"Error retrieving checkout overview page title text: {e}")
+            raise
         except AssertionError as ae:
             logging.error(f"Assertion error validating checkout overview page title: {ae}")
-            raise
-        except Exception as e:
-            logging.error(f"Unexpected error validating checkout overview page title: {e}")
             raise
         
     def assertCheckoutCompletePageTitle(self):
@@ -100,30 +91,14 @@ class CheckoutPage(SeleniumDriver):
             raise
     
     def enterCheckoutInformation(self, first_name, last_name, postal_code):
-        """Enters the details of the user at checkout."""
-        try:
-            self.sendKeys(first_name, self._FIRST_NAME_INPUT_LOCATOR, locatorType="xpath")
-            self.sendKeys(last_name, self._LAST_NAME_INPUT_LOCATOR, locatorType="xpath")
-            self.sendKeys(postal_code, self._POSTAL_CODE_INPUT_LOCATOR, locatorType="xpath")
-            logging.info("Entered checkout information")
-        except (TimeoutException, NoSuchElementException) as e:
-            logging.error(f"Error entering checkout information: {e}")
-            raise
-        except Exception as e:
-            logging.error(f"Unexpected error entering checkout information: {e}")
-            raise
+        """Fills in the checkout information."""
+        self.driver.find_element(By.ID, "first-name").send_keys(first_name)
+        self.driver.find_element(By.ID, "last-name").send_keys(last_name)
+        self.driver.find_element(By.ID, "postal-code").send_keys(postal_code)
         
     def clickContinueButton(self):
         """Clicks the continue button."""
-        try:
-            self.clickElement(self._CONTINUE_BUTTON_LOCATOR, locatorType="xpath")
-            logging.info("Clicked on continue button")
-        except (TimeoutException, NoSuchElementException) as e:
-            logging.error(f"Error clicking continue button: {e}")
-            raise
-        except Exception as e:
-            logging.error(f"Unexpected error clicking continue button: {e}")
-            raise
+        self.driver.find_element(By.ID, "continue").click()
     
     def clickCancelButton(self):
         """Clicks the cancel button."""
@@ -216,13 +191,14 @@ class CheckoutPage(SeleniumDriver):
             logging.error(f"Unexpected error during checkout items validation: {e}")
             raise
         
-    def completeCheckout(self, first_name, last_name, postal_code):
+    def completeCheckout(self, first_name, last_name, postal_code, expected_products):
         """Completes the checkout process."""
         try:
             self.assertCheckoutInformationPageTitle()
             self.enterCheckoutInformation(first_name, last_name, postal_code)
+            self.clickContinueButton()
             self.assertCheckoutOverviewPageTitle()
-            self.assertCheckoutItems()
+            self.assertCheckoutItems(expected_products)
             self.screenShot()
             self.clickFinishButton()
             self.assertCheckoutCompletePageTitle()

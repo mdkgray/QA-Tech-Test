@@ -12,7 +12,7 @@ class ProductPage(SeleniumDriver):
     _PRODUCT_MENU_HAMBURGER_LOCATOR = "//button[@id='react-burger-menu-btn']"
     _LOGOUT_BUTTON_LOCATOR = "//a[@id='logout_sidebar_link']"
     _PRODUCT_NAME_LOCATOR = "//div[@data-test='inventory-item-name']"
-    _ADD_OR_REMOVE_FROM_CART_BUTTON_LOCATOR = "//button[contains(@class, 'btn_inventory')]"
+    _ADD_OR_REMOVE_FROM_CART_BUTTON_LOCATOR = "//div[text()='PRODUCT_NAME']/ancestor::div[@class='inventory_item']//button[contains(@class, 'btn_inventory')]"
     _CART_COUNT_LOCATOR = "//span[@class='shopping_cart_badge']"
     
     def __new__(cls, driver):

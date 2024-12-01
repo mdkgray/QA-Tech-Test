@@ -1,11 +1,8 @@
 import logging
 import pytest
-import unittest
-from selenium import webdriver
 from pages.loginPage import LoginPage
 from pages.productPage import ProductPage
 from pages.cartPage import CartPage
-from pages.checkoutPage import CheckoutPage
 from utils.config_reader import ConfigReader
 from utils.product_data import get_product_data
 
@@ -13,7 +10,7 @@ from utils.product_data import get_product_data
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 @pytest.mark.usefixtures("oneTimeSetUp", "setUp")
-class TestCartPage(unittest.TestCase):
+class TestCartPage:
 
     @pytest.fixture(autouse=True)
     def objectSetup(self):
