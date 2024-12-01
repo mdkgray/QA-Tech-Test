@@ -9,7 +9,7 @@ from pages.productPage import ProductPage
 # Setting up logging configuration
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-@pytest.mark.usefixtures("oneTimeSetUp", "setUp")
+@pytest.mark.usefixtures("oneTimeSetUp")
 class LoginTests(unittest.TestCase):
     
     @pytest.fixture(autouse=True)
